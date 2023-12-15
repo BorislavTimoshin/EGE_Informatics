@@ -67,6 +67,7 @@ if number_of_task in task_1:
     exit()
 
 main_directory = "C:/Python_Projects/ЕГЭ_Информатика"
+flag = True
 
 for folder_name in folders:
     directory_task = f"{main_directory}/{folder_name}"
@@ -76,6 +77,6 @@ for folder_name in folders:
             for file in os.listdir(directory_website):
                 if file.startswith(str(number_of_task)):
                     print(f"Файл существует - {directory_website}/{file}")
-                    exit()
-else:
+                    flag = False
+if flag:
     print("Файл не существует")
