@@ -1,0 +1,27 @@
+with open("example.txt", "r", encoding="utf-8") as file:
+    numbers = [list(map(int, i.split())) for i in file.read().split("\n")]
+
+len_x = len(numbers[0])
+len_y = len(numbers)
+summs = []
+
+
+def rec(y, x, summa, lst):
+    if y == len_y - 1 and x == len_x - 1:
+        summs.append(summa + numbers[y][x])
+        lst.append(numbers[y][x])
+        print(lst)
+        return
+    elif y == len_y - 1:
+        rec(y, x + 1, summa + numbers[y][x], lst + [numbers[y][x]])
+    elif x == len_x - 1:
+        rec(y + 1, x, summa + numbers[y][x], lst + [numbers[y][x]])
+    else:
+        rec(y + 1, x, summa + numbers[y][x], lst + [numbers[y][x]])
+        rec(y, x + 1, summa + numbers[y][x], lst + [numbers[y][x]])
+
+
+rec(0, 0, 0, [])
+print(summs)
+print(max(summs))
+print(min(summs))

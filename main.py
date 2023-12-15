@@ -26,6 +26,11 @@ folders = [
     "9. Работа с таблицами"
 ]
 
+# Пути задач, которые пока не получилось решить
+unresolved_tasks = [
+
+]
+
 # Анализ информационных моделей
 task_1 = [
 
@@ -69,7 +74,7 @@ for folder_name in folders:
         if folder == website:
             directory_website = f"{directory_task}/{website}"
             for file in os.listdir(directory_website):
-                if file == f"{number_of_task}.py":
+                if file.startswith(str(number_of_task)):
                     print(f"Файл существует - {directory_website}/{file}")
                     exit()
 else:
