@@ -10,7 +10,6 @@ with open("24_9791.txt", "r", encoding="utf-8") as file:
         if text[i] in "ABCDEF123456789":
             s += text[i]
         else:
-            if len(s) > maxim:
-                maxim = len(s)
+            maxim = max(maxim, len(s))
             s = ""
     print(maxim)
